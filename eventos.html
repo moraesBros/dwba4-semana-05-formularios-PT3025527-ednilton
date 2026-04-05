@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>dwba4-semana-05-formulários-PT3025527-ednilton</title>
-  <link rel="shortcut icon" href="image/favicon.ico" type="x-icon">
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1400px; margin: 20px; }
+    fieldset { border: 2px solid #000; padding: 20px; margin-bottom: 16px; }
+    legend { font-weight: bold; padding: 0 8px; }
+    label { display: block; margin: 8px 0 4px; }
+    .inline { display: inline-block; margin-right: 12px; vertical-align: middle; }
+    .actions { margin-top: 12px; }
+  </style>
 </head>
 <body>
   <p style="text-align: right;">
@@ -14,63 +21,107 @@
     <a href="entrar.html">ENTRAR</a>
   </p>
 
-  <img src="Logo.jpg" alt="Logo do IFSP">
+  <img src="Logo.jpg" alt="Logo do IFSP" />
   <h1>Inscreva-se</h1>
 
-  <!-- Formulário de Evento -->
-  <form style="width: 1327px;">
-    <fieldset style="border: 2px solid black; padding: 15px;">
-    Evento:
-    <select name="evento">
-      <option value="" disabled selected>...selecione...</option>
-      <option value="Voe sem asas">Voe sem asas</option>
-      <option value="Festa junina">Festa junina</option>
-      <option value="Semana da tecnologia">Semana da tecnologia</option>
-    </select>
- </fieldset>
-  </form>
+  <!-- Um único formulário que engloba todas as seções -->
+  <form id="inscricaoForm" style="width:1327px;" onsubmit="return validarFormulario(event);">
+    <fieldset>
+      <legend>Evento</legend>
+      <label for="evento">Evento</label>
+      <select id="evento" name="evento" required>
+        <option value="" disabled selected>...selecione...</option>
+        <option value="Voe sem asas">Voe sem asas</option>
+        <option value="Festa junina">Festa junina</option>
+        <option value="Semana da tecnologia">Semana da tecnologia</option>
+      </select>
+    </fieldset>
 
-  <!-- Formulário de Informação de Acesso -->
-  <form style="width: 1327px;">
-    <fieldset style="border: 2px solid black; padding: 20px;">
+    <fieldset>
       <legend>Informação de Acesso</legend>
-      Usuário: <input name="usuario" type="text"><br/><br/>
-      Senha: <input name="senha" type="password"><br/><br/>
-      Confirmar Senha: <input name="confirmar_senha" type="password"><br/><br/>
-    </fieldset>
-  </form>
+      <label for="usuario">Usuário</label>
+      <input id="usuario" name="usuario" type="text" required />
 
-  <!-- Formulário de Informação Pessoal -->
-  <form style="width: 1327px;">
-    <fieldset style="border: 2px solid black; padding: 20px;">
+      <label for="senha">Senha</label>
+      <input id="senha" name="senha" type="password" required minlength="6" />
+
+      <label for="confirmar_senha">Confirmar Senha</label>
+      <input id="confirmar_senha" name="confirmar_senha" type="password" required minlength="6" />
+    </fieldset>
+
+    <fieldset>
       <legend>Informação Pessoal</legend>
-      Nome Completo <input name="nome" type="text"><br/><br/>
-      E-mail <input name="email" type="email"><br/><br/>
+      <label for="nome">Nome Completo</label>
+      <input id="nome" name="nome" type="text" required />
 
- <form style="width: 1320px;">
-    <fieldset style="border: 2px solid black; padding: 15px;">
-  <legend>Sexo</legend>
- Masculino <input type="radio" name="lp" value="Masculino">
-  Feminino <input type="radio" name="lp" value="Feminino">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" required />
+
+      <label>Sexo</label>
+      <label class="inline">
+        <input type="radio" name="sexo" value="Masculino" required /> <!-- required em um dos radios do grupo -->
+      </label>
+      <label class="inline">
+        <input type="radio" name="sexo" value="Feminino" /> 
+      </label>
+
+      <div style="margin-top:12px;">
+        <label for="telefone">Telefone</label>
+        <input id="telefone" name="telefone" type="tel" required pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}" title="Formato: (00) 00000-0000" />
+      </div>
+
+      <label for="data_nascimento">Data de nascimento</label>
+      <input id="data_nascimento" name="data_nascimento" type="date" required />
+
+      <label for="cor">Cor</label>
+      <input id="cor" name="cor" type="color" value="#0000ff" required />
+
+      <label for="github">Perfil no GitHub</label>
+      <input id="github" name="github" type="url" required
+             pattern="https://github\.com/.+"
+             placeholder="https://github.com/seuusuario"
+             title="Informe o endereço completo do GitHub começando com https://github.com/" />
     </fieldset>
-  </form>
-      <p></p>
-      Telefone <input name="telefone" type="tel">(00) 00000-0000<br/><br/>
-      Data de nascimento <input name="nome" type="date"><br/><br/>
-      Cor: <input name="cor" type="color" value="#0000ff"><br/><br/>
-Perfil no GitHub: <input name="github" type="url" placeholder="https://github.com/seuusuario"><br/><br/>
-    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Enviar" />
+      <input type="reset" value="Limpar" />
+    </div>
   </form>
 
-  <!-- Botão de envio fora das molduras -->
-  <p></p>
-  <input type="submit" value="Enviar">
-<input type="reset" value="Limpar">
   <p></p>
   <a href="https://www.facebook.com/IFSaoPaulo" target="_blank">
-    <img src="facebook.png" alt="Logo do facebook" width="50">
+    <img src="facebook.png" alt="Logo do facebook" width="50" />
   </a>
 
   <p>IFSP - Campus Pirituba - AV. Mutinga,951 - Jardim Santo Elias - CEP:05110-000 - São Paulo/SP - Contato: (011) 2504-0100</p>
+
+  <script>
+    // Validação extra: checar se as senhas conferem antes de enviar
+    function validarFormulario(event) {
+      const form = document.getElementById('inscricaoForm');
+
+      // Usar validação HTML nativa primeiro
+      if (!form.checkValidity()) {
+        // Mostra mensagens de validação do navegador
+        form.reportValidity();
+        event.preventDefault();
+        return false;
+      }
+
+      // Validação personalizada: senhas iguais
+      const senha = document.getElementById('senha').value;
+      const confirmar = document.getElementById('confirmar_senha').value;
+      if (senha !== confirmar) {
+        alert('As senhas não conferem. Por favor, verifique.');
+        document.getElementById('confirmar_senha').focus();
+        event.preventDefault();
+        return false;
+      }
+
+      // Tudo ok — o formulário pode ser enviado
+      return true;
+    }
+  </script>
 </body>
 </html>
