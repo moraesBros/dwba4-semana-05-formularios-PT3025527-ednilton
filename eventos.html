@@ -25,7 +25,7 @@
   <h1>Inscreva-se</h1>
 
   <!-- Um único formulário que engloba todas as seções -->
-  <form id="inscricaoForm" style="width:1327px;" onsubmit="return validarFormulario(event);">
+  <form id="inscricaoForm" style="width:1325px;" onsubmit="return validarFormulario(event);">
     <fieldset>
       Evento
       <select id="evento" name="evento" required>
@@ -38,23 +38,18 @@
 
     <fieldset>
       <legend>Informação de Acesso</legend>
-      <label for="usuario">Usuário</label>
-      <input id="usuario" name="usuario" type="text" required>
+      Usuário <input id="usuario" name="usuario" type="text" required>
 
-      <label for="senha">Senha</label>
-      <input id="senha" name="senha" type="password" required minlength="6" />
+      Senha <input id="senha" name="senha" type="password" required minlength="6" />
 
-      <label for="confirmar_senha">Confirmar Senha</label>
-      <input id="confirmar_senha" name="confirmar_senha" type="password" required minlength="6" />
+      Confirmar Senha <input id="confirmar_senha" name="confirmar_senha" type="password" required minlength="6" />
     </fieldset>
 
     <fieldset>
       <legend>Informação Pessoal</legend>
-      <label for="nome">Nome Completo</label>
-      <input id="nome" name="nome" type="text" required />
+      Nome Completo <input id="nome" name="nome" type="text" required />
 
-      <label for="email">E-mail</label>
-      <input id="email" name="email" type="email" required />
+      E-mail <input id="email" name="email" type="email" required />
       
  <form style="width: 1320px;">
     <fieldset style="border: 2px solid black; padding: 15px;">
@@ -65,18 +60,14 @@
   </form>
 
       <div style="margin-top:12px;">
-        <label for="telefone">Telefone</label>
-        <input id="telefone" name="telefone" type="tel" required pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}" title="Formato: (00) 00000-0000" />
+        Telefone <input id="telefone" name="telefone" type="tel" required pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}" title="Formato: (00) 00000-0000" />
       </div>
 
-      <label for="data_nascimento">Data de nascimento</label>
-      <input id="data_nascimento" name="data_nascimento" type="date" required />
+      Data de nascimento <input id="data_nascimento" name="data_nascimento" type="date" required />
 
-      <label for="cor">Cor</label>
-      <input id="cor" name="cor" type="color" value="#0000ff" required />
+      Cor <input id="cor" name="cor" type="color" value="#0000ff" required />
 
-      <label for="github">Perfil no GitHub</label>
-      <input id="github" name="github" type="url" required
+      Perfil no GitHub <input id="github" name="github" type="url" required
              pattern="https://github\.com/.+"
              placeholder="https://github.com/seuusuario"
              title="Informe o endereço completo do GitHub começando com https://github.com/" />
